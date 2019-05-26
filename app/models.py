@@ -41,6 +41,20 @@ class Pitch(db.Model):
     comment = db.relationship("Comments", backref="pitches", lazy = "dynamic")
     like = db.relationship("Likes", backref="pitches", lazy = "dynamic")
 
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def clear_pitches(cls):
+        Pitch.all_pitches.clear()
+
+    # display pitches
+
+    def get_pitches(id):
+        pitches = Pitch.query.filter_by(category_id=id).all()
+        return pitches
+
 class Category(db.Model):
     '''
     category class that separates pitches in different ctegories
