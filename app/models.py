@@ -17,6 +17,17 @@ class User(UserMixin,db.Model):
     comment = db.relationship("Comments", backref="user", lazy = "dynamic")
     like = db.relationship("Likes", backref="user", lazy = "dynamic")
 
+    
+    @password.setter
+    def password(self, password):
+        self.pass_secure = generate_password_hash(password)
+
+    def verify_password(self,password):
+        return check_password_hash(self.pass_secure,password)
+
+    def __repr__(self):
+        return f'User {self.username}'
+
 class Pitch(db.Model):
     '''
     pitch class that creates instances of the pitch object
@@ -41,6 +52,16 @@ class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
     description = db.Column(db.String(255))
+
+    def save_category(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_categories(cls):
+        categories = Category.query.all()
+        return categories
+
 
 class Comments(db.Model):
     '''
