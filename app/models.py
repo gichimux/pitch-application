@@ -16,3 +16,16 @@ class User(UserMixin,db.Model):
     pitches = db.relationship("Pitch", backref="user", lazy = "dynamic")
     comment = db.relationship("Comments", backref="user", lazy = "dynamic")
     vote = db.relationship("Votes", backref="user", lazy = "dynamic")
+
+class Pitch(db.Model):
+    '''
+    pitch class that creates instances of the pitch object
+    '''
+    __tablename__ = 'pitches'
+
+    id = db.Column(db.Integer,primary_key = True)
+    content = db.Column(db.String)
+    category_id = db.Column(db.Integer, db.ForeignKey("categories.id"))
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    comment = db.relationship("Comments", backref="pitches", lazy = "dynamic")
+    vote = db.relationship("Votes", backref="pitches", lazy = "dynamic")
