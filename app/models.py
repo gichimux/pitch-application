@@ -29,3 +29,15 @@ class Pitch(db.Model):
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     comment = db.relationship("Comments", backref="pitches", lazy = "dynamic")
     vote = db.relationship("Votes", backref="pitches", lazy = "dynamic")
+
+class Category(db.Model):
+    '''
+    category class that separates pitches in different ctegories
+    '''
+    
+    __tablename__ = 'categories'
+
+    # table columns
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255))
+    description = db.Column(db.String(255))
