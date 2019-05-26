@@ -91,6 +91,18 @@ class Comments(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     pitches_id = db.Column(db.Integer, db.ForeignKey("pitches.id"))
 
+    def save_comment(self):
+        '''
+        Save the Comments/comments per pitch
+        '''
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_comments(self, id):
+        comment = Comments.query.order_by(Comments.time_posted.desc()).filter_by(pitches_id=id).all()
+        return comment
+
 class Likes(db.Model):
     '''class to model votes '''
     __tablename__='likes'
@@ -99,3 +111,12 @@ class Likes(db.Model):
     like = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     pitches_id = db.Column(db.Integer, db.ForeignKey("pitches.id"))
+
+    def save_like(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_likes(cls,user_id,pitches_id):
+        likes = Likes.query.filter_by(user_id=user_id, pitches_id=pitches_id).all()
+        return likes
