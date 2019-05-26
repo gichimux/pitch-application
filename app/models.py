@@ -15,7 +15,7 @@ class User(UserMixin,db.Model):
     profile_pic_path = db.Column(db.String())
     pitches = db.relationship("Pitch", backref="user", lazy = "dynamic")
     comment = db.relationship("Comments", backref="user", lazy = "dynamic")
-    vote = db.relationship("Votes", backref="user", lazy = "dynamic")
+    like = db.relationship("Likes", backref="user", lazy = "dynamic")
 
 class Pitch(db.Model):
     '''
@@ -28,7 +28,7 @@ class Pitch(db.Model):
     category_id = db.Column(db.Integer, db.ForeignKey("categories.id"))
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     comment = db.relationship("Comments", backref="pitches", lazy = "dynamic")
-    vote = db.relationship("Votes", backref="pitches", lazy = "dynamic")
+    like = db.relationship("Likes", backref="pitches", lazy = "dynamic")
 
 class Category(db.Model):
     '''
@@ -41,3 +41,26 @@ class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
     description = db.Column(db.String(255))
+
+class Comments(db.Model):
+    '''
+    User's comment model that creates instances of comments object
+    '''
+
+    __tablename__ = 'comments'
+
+    # add columns
+    id = db.Column(db. Integer, primary_key=True)
+    opinion = db.Column(db.String(255))
+    time_posted = db.Column(db.DateTime, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    pitches_id = db.Column(db.Integer, db.ForeignKey("pitches.id"))
+
+class Likes(db.Model):
+    '''class to model votes '''
+    __tablename__='likes'
+
+    id = db.Column(db. Integer, primary_key=True)
+    like = db.Column(db.Integer)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    pitches_id = db.Column(db.Integer, db.ForeignKey("pitches.id"))
