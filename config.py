@@ -26,7 +26,7 @@ class ProdConfig(Config):
     Args:
         Config: the parent configuration class with general configuration settings
     '''    
-    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")#for heroku purposes
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     pass
 
 class DevConfig(Config):
