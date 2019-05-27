@@ -14,22 +14,23 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-
+    SUBJECT_PREFIX = 'Pitcher Application'
 
 
 
 
 class ProdConfig(Config):
-'''
+    '''
     production configuration child class
 
     Args:
         Config: the parent configuration class with general configuration settings
     '''    
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")#for heroku purposes
+    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")#for heroku purposes
+    pass
 
 class DevConfig(Config):
-'''
+    '''
     development configuration child class
 
     Args:
@@ -37,9 +38,13 @@ class DevConfig(Config):
     '''    
     DEBUG = True
 
+# class TestConfig(Config):
+    
+#     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://vincent:Empharse333@localhost/pitch_test'
+
 
 config_options ={
     'development' :DevConfig,
     'production' :ProdConfig,
-    'test' :TestConfig
+    #'test' :TestConfig
 }
