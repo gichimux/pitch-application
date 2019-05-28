@@ -47,8 +47,4 @@ config_options ={
     'development' :DevConfig,
     'production' :ProdConfig,
     'test' :TestConfig
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> FETCH_HEAD
