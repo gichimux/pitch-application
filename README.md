@@ -41,4 +41,4 @@ to report bugs or contact me, reach me on this email address: [gichimu.dev@gmail
 No bugs reported.
 
 # LICENCE
-[MIT] (https://github.com/gichimux/pitch-application/blob/master/LICENSE)
+[MIT](https://github.com/gichimux/pitch-application/blob/master/LICENSE)
