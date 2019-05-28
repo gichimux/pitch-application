@@ -1,6 +1,6 @@
-# APLICATION NAME: News Highlight
+# APLICATION NAME: Pitcher
 
-This is a web application built on the flask python framework. The application consumes the news API enabling the user to view news articles from various sources
+This is a web application built on the flask python framework and psql database.
 
 # prerequisites
 
@@ -41,4 +41,4 @@ to report bugs or contact me, reach me on this email address: [gichimu.dev@gmail
 No bugs reported.
 
 # LICENCE
-MIT
+[MIT] (https://github.com/gichimux/pitch-application/blob/master/LICENSE)

@@ -5,8 +5,9 @@ from app.models import User,Pitch,Comment,Category
 from flask_migrate import Migrate, MigrateCommand
 
 # Creating app instance
+#development mode
 # app = create_app('development')
-app = create_app('development')#We pass in the production option from our config_options dictionary. This will change our app's configurations to the ProdConfig class.
+app = create_app('production')#We pass in the production option from our config_options dictionary. This will change our app's configurations to the ProdConfig class.
 
 
 manager = Manager(app)
@@ -18,7 +19,9 @@ manager.add_command('db', MigrateCommand)
 
 @manager.command
 def test():
-    """Run unit tests.""" 
+    '''
+    Run unit tests.
+    '''
     import unittest
     tests = unittest.TestLoader().discover('tests')
     unittest.TextTestRunner(verbosity=2).run(tests)
