@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
+
 {% import 'bootstrap/wtf.html' as wtf %}
+
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+{%enblock%}
 
 {% block content %}
 <div class="container">
