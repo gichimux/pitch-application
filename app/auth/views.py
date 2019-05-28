@@ -18,7 +18,7 @@ def login():
 
         flash('invalid username or password')
     
-    title = "watchlist login"
+    title = "pitcher login"
     return render_template('auth/login.html', login_form = login_form, title = title)
     # if login_form.validate_on_submit():
     #     user = User.query.filter_by(email = login_form.email.data).first()
@@ -31,7 +31,7 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        mail_message("Welcome to watchlist", "email/welcome_user", user.email, user=user)
+        mail_message("Welcome to Pitcher", "email/welcome_user", user.email, user=user)
         
         return redirect(url_for('auth.login'))
         title = "New Account"

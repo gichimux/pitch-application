@@ -5,75 +5,97 @@
 {{ super() }}
 <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+<link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
 {%endblock%}
 
 {% block content %}
     <div class="container" >
         <div class="row" >
-            <span style="font-size:25px; font-family: 'Luckiest Guy', cursive; text-align: center;">Pitch your ideas in any of the categories listed below and see what people have to say about it</span>
-        </div>
-        <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+
+            <!-- <span style="font-size:25px; font-family: 'Luckiest Guy', cursive; text-align: center;">Pitch your ideas in any of the categories listed below and see what people have to say about it</span> -->
+        
+      <!-- <div class="row"> -->
+
+            <legend>
+        <p style="text-align: center;font-family: 'Righteous', cursive; font-size: 20px;">check out some great pitches from fellow pitchers from all over the globe in some of the categories listed 
+        and sign up to be able to comment or come up with your own awesome pitches. lets get pitching!
+    </p>
+    </legend>
+    <hr>
+      
+            <!-- <div class="row"> -->
+
+    
+
+                <div class="container">
+                    <div class="row">
+
+             <div class="col-sm-6">
+                <div class="card text-center" style="width: 18rem;margin: 0 auto;">
+                <img src="{{ url_for('static', filename='img/business.jpg') }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <h5 class="card-title">Business Pitches</h5>
+                  <a href="{{url_for('main.business')}}" class="btn btn-dark">View Pitches</a>
                 </div>
               </div>
-        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3"> 
-                    <a href="{{url_for('main.business')}}" style="font-family: 'Joti One', cursive; font-size:20px;">
-                        <br>
-                        Business Pitches
-                    </a>
-                    <br>
-                    <a href="{{url_for('main.promo')}}" style="font-family: 'Joti One', cursive; font-size:20px;">
-                        <br>
-                        Product Promotion Pitches
-                    </a>
-                    <br>
-                    <a href="{{url_for('main.social')}}" style="font-family: 'Joti One', cursive; font-size:20px;">
-                        <br>
-                        Social Welfare Pitches
-                    </a>
-                    <br>
-                    <a href="{{url_for('main.environment')}}" style="font-family: 'Joti One', cursive; font-size:20px;">
-                        <br>
-                        Environmental Pitches
-                    </a>
-                    <br>
-                    <a href="{{url_for('main.academic')}}" style="font-family: 'Joti One', cursive; font-size:20px;">
-                        <br>
-                        Academic Pitches
-                    </a>
-                    <br>
-                    <a href="{{url_for('main.humor')}}" style="font-family: 'Joti One', cursive; font-size:20px;">
-                        <br>
-                        Humor Pitches
-                    </a>
-                    <br>
-        </div>
-        <!-- <div class="card text-center, card text-white bg-dark mb-8">
-                <div class="card-header">
-                  About the Application
-                </div>
+              <div class="card text-center" style="width: 18rem;margin: 0 auto;">
+                <img src="{{ url_for('static', filename='img/product.jpg') }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <p class="card-text">Pitch your ideas in any of the categories listed below and see what people have to say about it.</p>
-                  <a href="{{url_for('main.new_pitch')}}" class="btn btn-primary">Create New Pitch</a>
+                  <h5 class="card-title"> Product Promotion Pitches</h5>
+                  <a href="{{url_for('main.business')}}" class="btn btn-dark">View Pitches</a>
                 </div>
-                <div class="card-footer text-muted">
+              </div>
+              <div class="card text-center" style="width: 18rem;margin: 0 auto;">
+                <img src="{{ url_for('static', filename='img/social.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Social Welfare Pitches</h5>
+                  <a href="{{url_for('main.business')}}" class="btn btn-dark">View Pitches</a>
                 </div>
-              </div> -->
-            
+              </div>
         </div>
+    <!-- </div>
+</div> -->
+            <!-- </div> -->
+                     <!-- <div class="container">  
+                         <div class="row"> -->
+                    <div class="col-md-6">
+              <div class="card text-center" style="width: 18rem;">
+                <img src="{{ url_for('static', filename='img/environment.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Environmental Pitches</h5>
+                  <a href="{{url_for('main.business')}}" class="btn btn-dark">View Pitches</a>
+                </div>
+              </div>
+              <div class="card text-center" style="width: 18rem;">
+                <img src="{{ url_for('static', filename='img/academic.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Academic Pitches</h5>
+                  <a href="{{url_for('main.business')}}" class="btn btn-dark">View Pitches</a>
+                </div>
+              </div>
+              <div class="card text-center" style="width: 18rem;">
+                <img src="{{ url_for('static', filename='img/humor.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Humor Pitches</h5>
+                  <a href="{{url_for('main.business')}}" class="btn btn-dark">View Pitches</a>
+                </div>
+              </div>
+              <!-- </div> -->
+              </div>
+              </div>
+            </div><br>
+
     </hr>
+    <div class="container">
         <div class="all-pitches">
-            <span style="color:#0CF;">All pitches are displayed below</span>
+            <p style="text-align: center;font-family: 'Righteous', cursive; font-size: 20px;">All pitches are displayed below</p>
                 <hr> 
                 {{macro.displayPitches(pitches)}}
             
 
         </div>
-
+</div>
+   
     </div>
 
 

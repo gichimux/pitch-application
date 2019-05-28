@@ -6,12 +6,20 @@
         <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">    </head>
     <body>
     <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" style="color: lime; font-size: 30px; padding: 6px; font-weight: 100; margin-right: 100px;font-family: 'Luckiest Guy', cursive;
+        <a class="navbar-brand" style="color: #0cf; font-size: 30px; padding: 6px; font-weight: 100; margin-right: 100px;font-family: 'Luckiest Guy', cursive;
         " href="/" >PITCHER</a>
-        <a class="navbar-brand" style="color: #fff; border-left: 1px solid lime;padding: 16px" href="/" ><span class="glyphicon glyphicon-home"></span> Home</a>
-        <a class="navbar-brand" style="color: #fff;  border-left: 1px solid lime;padding: 16px" href="#" ><span class="glyphicon glyphicon-info-sign"></span> About</a>
-        <a class="navbar-brand" style="color: #fff;  border-left: 1px solid lime;padding: 16px" href="#" ><span class="glyphicon glyphicon-earphone"></span> Contact</a>
-
+        <a class="navbar-brand" style="color: #fff; border-left: 1px solid #0cf;padding: 16px" href="/" ><span class="glyphicon glyphicon-home"></span> Home</a>
+        <a class="navbar-brand" style="color: #fff;  border-left: 1px solid #0cf;padding: 16px" href="#" ><span class="glyphicon glyphicon-info-sign"></span> About</a>
+        <a class="navbar-brand" style="color: #fff;  border-left: 1px solid #0cf;padding: 16px" href="#" ><span class="glyphicon glyphicon-earphone"></span> Contact</a>
+        <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_authenticated %}
+                <li><a href="{{url_for('main.profile', uname=current_user.username)}}">Profile</a></li>
+                <li style="color:white; padding: 15px;">{{current_user.username}}</li>
+                <li><a href="{{ url_for('auth.logout')}}">Sign out</a></li>
+                {% else %}
+                <li><a href="{{url_for('auth.login')}}">Sign In</a></li>
+                {%endif%}
+            </ul>
       </nav>
 
 </body>
